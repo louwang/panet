@@ -1,10 +1,13 @@
+
 快趴網 - quick parse
+
 超簡單parsing
+
 不用會regexp
+
 不用寫程式
 
-
-今天我想要search特定特徵的string, 但是又不會寫 regexp, 怎麼辦?
+今天我想要search特定特徵的 string, 但是又不會寫 regexp, 怎麼辦?
 
 regexp 翻譯器誕生
 
