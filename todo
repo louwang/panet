@@ -1,4 +1,3 @@
-
 快趴網 - quick parse
 
 超簡單parsing
@@ -13,3 +12,34 @@ regexp 翻譯器誕生
 
 人類描述語言 => regexp
 
+
+features:
+
+o. think straight forward
+
+o. don't need to 避開特殊字元
+
+o. don't need to remember special symbol
+
+
+
+match and rewrite
+
+(3*a+4*'@'+[~2]*1)
+
+[1~2]*'+'+
+
+3*"")"+
+
+symbol , char, digit
+
+
+operator : + * "
+
+or and
+
+
+string is like --------------------------------------------------- contains white space
+a limited length of array contains any kind of symbol
+
+============1==========
