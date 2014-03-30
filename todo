@@ -16,11 +16,9 @@ regexp 翻譯器誕生
 features:
 
 o. think straight forward
-
-o. don't need to 避開特殊字元
-
-o. don't need to remember special symbol
-
+o. fool-proofing
+o. don't need to escape : 避開特殊字元
+o. don't need to remember special symbol (like \d \w \W)
 
 
 match and rewrite
