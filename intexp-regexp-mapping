@@ -46,10 +46,10 @@ b[aeiou]t	“bat”, “bet”, “bit”, “bot”, “but”	“bxt”, “bz
 
 
 [OK]
-\r # \r , use 'r ' for specific matching
-\t # \t , use 't ' for specific matching
-\n # \n , use 'n ' for specific matching
-\f # \f , use 't ' for specific matching
+\r # \r , use '\r' for specific matching
+\t # \t , use '\t' for specific matching
+\n # \n , use '\n' for specific matching
+\f # \f , use '\t' for specific matching
 \b
 
 hard to represent
