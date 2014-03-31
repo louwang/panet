@@ -10,7 +10,7 @@
 
 regexp 翻譯器誕生
 
-人類描述語言 => regexp
+人類描述語言 => intexp (intuitive expression) => regexp
 
 
 features:
