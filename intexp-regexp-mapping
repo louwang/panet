@@ -45,9 +45,18 @@ b[aeiou]t	“bat”, “bet”, “bit”, “bot”, “but”	“bxt”, “bz
 
 
 
-\s	空白字元	[ \r\t\n\f]
-\S	非空白字元	[^ \r\t\n\f]
+[OK]
+\r # \r , use 'r ' for specific matching
+\t # \t , use 't ' for specific matching
+\n # \n , use 'n ' for specific matching
+\f # \f , use 't ' for specific matching
+\b
 
+hard to represent
+{
+\s	空白字元	[ \r\t\n\f] # ex. '3*s +4*a' 
+\S	非空白字元	[^ \r\t\n\f] # not 's '
+}
 字元	說明	簡單範例
 .	比對任何一個字元（但換行符號不算）	/.n/ 可比對 “nay, an apple is on the tree” 中的 “an” 和 “on”，但不可比對 “nay”
 [\b]	比對退位字元（Backspace character）	可以比對一個 backspace ，也請注意 [\b] 與 \b 之間的差別
@@ -56,8 +65,6 @@ b[aeiou]t	“bat”, “bet”, “bit”, “bot”, “but”	“bxt”, “bz
 \B	比對非「英文字的邊界」	例如, /\w\Bn/ 可以比對 “noonday” 中的 ‘on’ ,
 另外 /y\B\w/ 可以比對 “possibly yesterday.” 中的 ‘ye’
 \cX	比對控制字元（Control character），其中 X 是一個控制字元	/\cM/ 可以比對 一個字串中的 control-M
-\d	比對任一個數字，等效於 [0-9]	/[\d]/ 可比對 由 “0″ 至 “9″ 的任一數字 但其餘如字母等就不可比對
-\D	比對任一個非數字，等效於 [^0-9]	/[\D]/ 可比對 “w” “a”… 但不可比對如 “7″ “1″ 等數字
 \f	比對 form-feed	若是在文字中有發生 “換頁” 的行為 則可以比對成功
 \n	比對換行符號	若是在文字中有發生 “換行” 的行為 則可以比對成功
 \r	比對 carriage return	
@@ -65,7 +72,3 @@ b[aeiou]t	“bat”, “bet”, “bit”, “bot”, “but”	“bxt”, “bz
 \S	比對任一個非空白字元，等效於 [^ \f\n\r\t\v]	/\S/\w* 可比對 “A b” 中的 “A”
 \t	比對定位字元（Tab）	
 \v	比對垂直定位字元（Vertical tab）	
-\w	比對數字字母字元（Alphanumerical characters）或底線字母（”_”），等效於 [A-Za-z0-9_]	/\w/ 可比對 “.A _!9″ 中的 “A”、”_”、”9″。
-\W	比對非「數字字母字元或底線字母」，等效於 [^A-Za-z0-9_]	/\W/ 可比對 “.A _!9″ 中的 “.”、” “、”!”，可見其功能與 /\w/ 恰好相反。
-\ooctal	比對八進位，其中octal是八進位數目	/\oocetal123/ 可比對 與 八進位的ASCII中 “123″ 所相對應的字元值。
-\xhex	比對十六進位，其中hex是十六進位數目	/\xhex38/ 可比對 與 16進位的ASCII中 “38″ 所相對應的字元。
