@@ -22,28 +22,29 @@ regexp # intexp
 /a{,3}/	至多三個 # ~3*'a'
 /a.{5}b/ a 和 b中間夾五個（非換行）字元 # 'a'+5*a+'b'
 
-TODO: 非 how to represent?
-
-
-
+[OK]
+非 how to represent? => use not
+not a, not 1, not #, not 'A'+...
 
 [0-9]	含數字之字串	不含數字之字串 # 1 or 2 or 3 /or/  1|2|3
 [a-z0-9]	含數字或小寫字母之字串 # a|1
 [a-zA-Z0-9]	含數字或字母之字串 # a|A|1
-b[aeiou]t	“bat”, “bet”, “bit”, “bot”, “but”	“bxt”, “bzt”
-[^0-9]	不含數字之字串（若要比對 ^，請使用 \^）	含數字之字串
-[^aeiouAEIOU]	不含母音之字串（若要比對 ^，請使用 \^）	含母音之字串
-[^\^]	不含 “^” 之字串，例如 “xyz”, “abc”	“xy^”, not'^'
+b[aeiou]t	“bat”, “bet”, “bit”, “bot”, “but”	“bxt”, “bzt” # 'b'+a|e|i|o|u+'t'
+[^0-9]	不含數字之字串（若要比對 ^，請使用 \^）	含數字之字串 # not 1 or not 2
+[^aeiouAEIOU]	不含母音之字串（若要比對 ^，請使用 \^）	含母音之字串 # not a|e|i|o|u|A|E|I|O|U
+[^\^]	不含 “^” 之字串，例如 “xyz”, “abc”	“xy^”, not'^' # not '^'
+
 
 [TODO]
 正規表示式的特定字元	說明	等效的正規表示式
-\d	數字	[0-9]
-\D	非數字	[^0-9] # 
-\w	數字、字母、底線	[a-zA-Z0-9_]
-\W	非 \w	[^a-zA-Z0-9_]
+\d	數字	[0-9] # 1 
+\D	非數字	[^0-9] #  not 1 
+\w	數字、字母、底線	[a-zA-Z0-9_] #  a|A|1|'_'
+\W	非 \w	[^a-zA-Z0-9_] # not a|A|1|'_'
+
+
 \s	空白字元	[ \r\t\n\f]
 \S	非空白字元	[^ \r\t\n\f]
-
 
 字元	說明	簡單範例
 .	比對任何一個字元（但換行符號不算）	/.n/ 可比對 “nay, an apple is on the tree” 中的 “an” 和 “on”，但不可比對 “nay”
