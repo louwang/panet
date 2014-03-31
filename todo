@@ -14,30 +14,25 @@ regexp 翻譯器誕生
 
 
 features:
-
 o. think straight forward
-o. fool-proofing
+o. basic level of fool-proofing
 o. don't need to escape : 避開特殊字元
 o. don't need to remember special symbol (like \d \w \W)
 
+(ex. you can just type some examples of the pattern that you want to match 
+and the interpreter will try to figure it out)
 
-match and rewrite
+motivation:
+i want to satisfy 
+1. the man who want to express the pattern straight forward
+2. the man who want to type as few word as possible to express their pattern
 
-(3*a+4*'@'+[~2]*1)
+definition:
+symbol, char, digit, spcae
+operator : + * '' or and not
 
-[1~2]*'+'+
-
-3*"")"+
-
-symbol , char, digit
-
-
-operator : + * "
-
-or and
-
-
+other thoughts:
 string is like --------------------------------------------------- contains white space
 a limited length of array contains any kind of symbol
 
-============1==========
+
