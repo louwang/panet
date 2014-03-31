@@ -34,13 +34,13 @@ b[aeiou]t	“bat”, “bet”, “bit”, “bot”, “but”	“bxt”, “bz
 [^aeiouAEIOU]	不含母音之字串（若要比對 ^，請使用 \^）	含母音之字串 # not a|e|i|o|u|A|E|I|O|U
 [^\^]	不含 “^” 之字串，例如 “xyz”, “abc”	“xy^”, not'^' # not '^'
 
-
-[TODO]
+[OK]
 正規表示式的特定字元	說明	等效的正規表示式
 \d	數字	[0-9] # 1 
 \D	非數字	[^0-9] #  not 1 
 \w	數字、字母、底線	[a-zA-Z0-9_] #  a|A|1|'_'
 \W	非 \w	[^a-zA-Z0-9_] # not a|A|1|'_'
+
 
 
 \s	空白字元	[ \r\t\n\f]
