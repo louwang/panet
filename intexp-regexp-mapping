@@ -1,3 +1,5 @@
+Design phase of this project
+
 regexp # intexp
 
 [OK]
@@ -23,7 +25,7 @@ regexp # intexp
 /a.{5}b/ a 和 b中間夾五個（非換行）字元 # 'a'+5*a+'b'
 
 [OK]
-非 how to represent? => use not
+非 how to represent? => use not add 'space', ex. 'not '
 not a, not 1, not #, not 'A'+...
 
 [0-9]	含數字之字串	不含數字之字串 # 1 or 2 or 3 /or/  1|2|3
