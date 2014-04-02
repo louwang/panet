@@ -26,9 +26,11 @@ regexp # intexp
 
 [OK]
 非 how to represent? => use not add 'space', ex. 'not '
-not a, not 1, not #, not 'A'+...
+not a, not 1, not #, not 'A'+...,
 
-[0-9]	含數字之字串	不含數字之字串 # 1 or 2 or 3 /or/  1|2|3
+operator 之間要空格
+
+[0-9]	含數字之字串	不含數字之字串 # 1 or 2 or 3 /or/  1 or 2 or 3
 [a-z0-9]	含數字或小寫字母之字串 # a|1
 [a-zA-Z0-9]	含數字或字母之字串 # a|A|1
 b[aeiou]t	“bat”, “bet”, “bit”, “bot”, “but”	“bxt”, “bzt” # 'b'+a|e|i|o|u+'t'
@@ -48,28 +50,21 @@ b[aeiou]t	“bat”, “bet”, “bit”, “bot”, “but”	“bxt”, “bz
 \t # \t , use '\t' for specific matching
 \n # \n , use '\n' for specific matching
 \f # \f , use '\t' for specific matching
-\b
+\b # \b , use '\b'
+\v # \v , use '\v'
+\B
 
 hard to represent
 {
-\s	空白字元	[ \r\t\n\f] # ex. '3* +4*a' 
-\S	非空白字元	[^ \r\t\n\f] # not 's '
+\s	空白字元	[ \r\t\n\f] # ex. '3* +4*a' or space
+\S	非空白字元	[^ \r\t\n\f] # not space
 }
 
 1*any
+control 'M'
 
-字元	說明	簡單範例
-.	比對任何一個字元（但換行符號不算）	/.n/ 可比對 “nay, an apple is on the tree” 中的 “an” 和 “on”，但不可比對 “nay”
-[\b]	比對退位字元（Backspace character）	可以比對一個 backspace ，也請注意 [\b] 與 \b 之間的差別
-\b	比對英文字的邊界，例如空格	例如 /\bn\w/ 可以比對 “noonday” 中的 ‘no’ ;
-/\wy\b/ 可比對 “possibly yesterday.” 中的 ‘ly’
-\B	比對非「英文字的邊界」	例如, /\w\Bn/ 可以比對 “noonday” 中的 ‘on’ ,
-另外 /y\B\w/ 可以比對 “possibly yesterday.” 中的 ‘ye’
-\cX	比對控制字元（Control character），其中 X 是一個控制字元	/\cM/ 可以比對 一個字串中的 control-M
-\f	比對 form-feed	若是在文字中有發生 “換頁” 的行為 則可以比對成功
-\n	比對換行符號	若是在文字中有發生 “換行” 的行為 則可以比對成功
-\r	比對 carriage return	
-\s	比對任一個空白字元（White space character），等效於 [ \f\n\r\t\v]	/\s\w*/ 可比對 “A b” 中的 “b”
-\S	比對任一個非空白字元，等效於 [^ \f\n\r\t\v]	/\S/\w* 可比對 “A b” 中的 “A”
-\t	比對定位字元（Tab）	
-\v	比對垂直定位字元（Vertical tab）	
+useful operator: 
+not, is, a 
+is 3 space
+is a space
+
