@@ -63,6 +63,8 @@ hard to represent
 1*any
 control 'M'
 
+space, symbol, char, digit
+
 useful operator: 
 not, is, a 
 is 3 space
