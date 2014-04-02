@@ -43,8 +43,6 @@ b[aeiou]t	“bat”, “bet”, “bit”, “bot”, “but”	“bxt”, “bz
 \w	數字、字母、底線	[a-zA-Z0-9_] #  a|A|1|'_'
 \W	非 \w	[^a-zA-Z0-9_] # not a|A|1|'_'
 
-
-
 [OK]
 \r # \r , use '\r' for specific matching
 \t # \t , use '\t' for specific matching
@@ -54,9 +52,12 @@ b[aeiou]t	“bat”, “bet”, “bit”, “bot”, “but”	“bxt”, “bz
 
 hard to represent
 {
-\s	空白字元	[ \r\t\n\f] # ex. '3*s +4*a' 
+\s	空白字元	[ \r\t\n\f] # ex. '3* +4*a' 
 \S	非空白字元	[^ \r\t\n\f] # not 's '
 }
+
+1*any
+
 字元	說明	簡單範例
 .	比對任何一個字元（但換行符號不算）	/.n/ 可比對 “nay, an apple is on the tree” 中的 “an” 和 “on”，但不可比對 “nay”
 [\b]	比對退位字元（Backspace character）	可以比對一個 backspace ，也請注意 [\b] 與 \b 之間的差別
