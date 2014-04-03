@@ -1,0 +1,84 @@
+<body>
+
+    <div id="page">
+
+        <div id="fb-root"></div>
+
+        <div id="header">
+            <header>
+                <a id="logo" href="./" title="Home Page"><img class="top" src="http://d1cc6jmz0ijhhm.cloudfront.net/images/branah.jpg" width="840" height="144" alt="Write in your language wherever you may be with the best online keyboard on the Internet"></a>
+            </header>
+        </div>
+
+        <div class="main_content">
+
+            <h1>ASCII Converter</h1>
+
+            <p><input type="button" id="btnascii" value="Convert" style="width:100px"> ASCII (Example: a b c)<br>
+<textarea id="ascii" rows="4" cols="75"></textarea><br><input type="button" id="separate" value="Add spaces" style="width:100px"><input type="button" id="combine" value="Remove spaces" style="margin-left:1em;width:100px"><label style="margin-left:1em"><input type="checkbox" id="whitespace"> Convert white space characters</label></p>
+<p><input type="button" id="btnhex" value="Convert" style="width:100px"> Hex (Example: 0x61 0x62 0x63) <label style="margin-left:1em"><input type="checkbox" id="zerox"> Remove 0x</label><br>
+<textarea id="hex" rows="4" cols="75"></textarea></p>
+<p><input type="button" id="btndec" value="Convert" style="width:100px"> Decimal (Example: 97 98 99)<br>
+<textarea id="dec" rows="4" cols="75"></textarea></p>
+<p><input type="button" id="btnbinary" value="Convert" style="width:100px"> Binary (Example: 01100001 01100010 01100011)<br>
+<textarea id="binary" rows="4" cols="75"></textarea></p>
+
+            <div id="share"><a id="share-buttons" href="#">Share</a><div id="fshare" class="share"><fb:like layout="button_count" href="http://www.branah.com/ascii-converter" send="true" show_faces="false" stream="false" header="false"></fb:like></div><div id="tshare" class="share"></div><div id="#gshare" class="share"><g:plusone href="http://www.branah.com/ascii-converter" size="medium"></g:plusone></div><div class="clear"></div></div>
+
+            <p><em>ASCII Converter</em> enables you to easily convert ASCII characters to their hex, decimal, and binary representations. As you type in one of the text boxes below, the other boxes are converted on the fly.</p>
+<p>The ASCII converter doesn't automatically add spaces between the converted values. You can use the add spaces button to separate the ASCII characters so that the converted values will also be separated from one another.</p>
+<p>White space characters are not converted unless the white space check box is checked.</p>
+
+            <h3>Comments</h3>
+            <div id="comments">
+                <a id="fcomments" href="#">Load Comments</a><fb:comments href="http://www.branah.com/ascii-converter" num_posts="10" width="620"></fb:comments>
+            </div>
+
+            <div class="side_content">
+            </div>
+        </div>
+
+        <div id="footer">
+            <footer>
+                <ul class="menu">
+                    <li class="menuitem"><a href="./" title="Home">Home</a></li>
+                    <li class="menuitem"><a href="./help" title="Help">Help</a></li>
+                    <li class="menuitem"><a href="./contact" title="Contact">Contact</a></li>
+                    <li class="menuitem"><a href="./terms-of-use" title="Terms of use">Terms of Use</a></li>
+                    <li class="menuitem"><a href="./privacy-policy" title="Privacy policy">Privacy Policy</a></li>
+                    <li class="menuitem">© branah.com</li>
+                </ul>
+            </footer>
+        </div>
+
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+    <script>!window.jQuery && document.write('<script src="/Script/jquery-1.8.2.min.js"><\/script>');</script>
+
+    <script>
+var branah={};branah.util={keyCode:function(b){if(!b){var b=window.event}if($.browser.mozilla){var a=b.keyCode;switch(a){case 59:a=186;break;case 107:a=187;break;case 109:a=189;break}return a}if($.browser.opera){var a=b.keyCode;switch(a){case 59:a=186;break;case 61:a=187;break;case 109:a=189;break}return a}return b.keyCode},isCtrl:function(a){if(!a){var a=window.event}return a.ctrlKey},isAlt:function(a){if(!a){var a=window.event}return a.altKey},isShift:function(a){if(!a){var a=window.event}return a.shiftKey},isCaps:function(a){var b=this.keyCode(a);var c=this.isShift(a);if((b>=65&&b<=90&&!c)||(b>=97&&b<=122&&c)){return true}if((b>=65&&b<=90&&c)||(b>=97&&b<=122&&!c)){return false}return false},padLeft:function(b,a){if(!a||b.length>=a){return b}return Math.pow(10,a-b.length).toString().slice(1)+b},indexOf:function(a,d){var c=a.length;for(var b=0;b<c;b++){if(a[b]==d){return b}}return -1},keyOf:function(a,c){for(var b in a){if(b==="length"||!a.hasOwnProperty(b)){continue}if(a[b]==c){return b}}return null},insertAtCaret:function(a,f){var d=this.getSelectionStart(a);var b=this.getSelectionEnd(a);var c=a.value.length;a.value=a.value.substring(0,d)+f+a.value.substring(b,c);this.setCaretPosition(a,d+f.length,0)},deleteAtCaret:function(c,b,a){var g=this.getSelectionStart(c);var d=this.getSelectionEnd(c);var f=c.value.length;if(b>g){b=g}if(d+a>f){a=f-d}var h=c.value.substring(g-b,d+a);c.value=c.value.substring(0,g-b)+c.value.substring(d+a);this.setCaretPosition(c,g-b,0);return h},getSelectionStart:function(a){a.focus();if(a.selectionStart!==undefined){return a.selectionStart}else{if(document.selection){var b=document.selection.createRange();if(b==null){return 0}var d=a.createTextRange();var c=d.duplicate();d.moveToBookmark(b.getBookmark());c.setEndPoint("EndToStart",d);return c.text.length}}return 0},getSelectionEnd:function(a){a.focus();if(a.selectionEnd!==undefined){return a.selectionEnd}else{if(document.selection){var b=document.selection.createRange();if(b==null){return 0}var d=a.createTextRange();var c=d.duplicate();d.moveToBookmark(b.getBookmark());c.setEndPoint("EndToStart",d);return c.text.length+b.text.length}}return a.value.length},setCaretPosition:function(b,d,a){var c=b.value.length;if(d>c){d=c}if(d+a>c){a=c-a}b.focus();if(b.setSelectionRange){b.setSelectionRange(d,d+a)}else{if(b.createTextRange){var f=b.createTextRange();f.collapse(true);f.moveEnd("character",d+a);f.moveStart("character",d);f.select()}}b.focus()},selectAll:function(a){this.setCaretPosition(a,0,a.value.length)}};String.fromCharCodeS=function(){var d=arguments.length;var e="";var a,c,f;for(var b=0;b<d;b++){f=arguments[b];if(f<1114112&&65535<f){a=Math.floor((f-65536)/1024)+55296;c=((f-65536)%1024)+56320;e=e+String.fromCharCode(a,c)}else{if(f<65536){e=e+String.fromCharCode(f)}}}return e};$(document).ready(function(){$("#ascii").bind("keyup",function(a){convert(1)});$("#hex").bind("keyup",function(a){convert(2)});$("#binary").bind("keyup",function(a){convert(3)});$("#dec").bind("keyup",function(a){convert(4)});$("#btnascii").bind("click",function(a){convert(1)});$("#btnhex").bind("click",function(a){convert(2)});$("#btnbinary").bind("click",function(a){convert(3)});$("#btndec").bind("click",function(a){convert(4)});$("#whitespace").bind("click",function(a){convert(1)});$("#zerox").bind("click",function(a){convert(1)});$("#separate").bind("click",function(a){separate();convert(1)});$("#combine").bind("click",function(a){combine();convert(1)})});function convert(b){switch(b){case 1:var a=$("#ascii").attr("value");$("#hex").attr("value",asciiToHex(a));$("#dec").attr("value",asciiToDec(a));$("#binary").attr("value",asciiToBinary(a));break;case 2:var a=$("#hex").attr("value");$("#ascii").attr("value",hexToAscii(a));$("#dec").attr("value",hexToDec(a));$("#binary").attr("value",hexToBinary(a));break;case 3:var a=$("#binary").attr("value");$("#ascii").attr("value",binaryToAscii(a));$("#hex").attr("value",binaryToHex(a));$("#dec").attr("value",binaryToDec(a));break;case 4:var a=$("#dec").attr("value");$("#ascii").attr("value",decToAscii(a));$("#hex").attr("value",decToHex(a));$("#binary").attr("value",decToBinary(a));break;default:break}}function isWhitespace(a){if(a==9||a==10||a==13||a==32){return true}return false}function separate(){var b=$("#ascii").attr("value");var d=b.length;if(d<2){return}var c=b.charCodeAt(0);var e=b.charAt(0);for(var a=1;a<d;a++){if(isWhitespace(c)==false&&isWhitespace(b.charCodeAt(a))==false){e+=" "}c=b.charCodeAt(a);e+=b.charAt(a)}$("#ascii").attr("value",e)}function combine(){var a=$("#ascii").attr("value");$("#ascii").attr("value",a.replace(/\u0020/g,""))}function asciiToHex(b){var d="";var c=b.length;for(var a=0;a<c;a++){if($("#whitespace").is(":checked")==false&&isWhitespace(b.charCodeAt(a))==true){d+=b.charAt(a)}else{if($("#zerox").is(":checked")==false){d+="0x"}d+=branah.util.padLeft(b.charCodeAt(a).toString(16),2)}}return d}function asciiToDec(b){var d="";var c=b.length;for(var a=0;a<c;a++){if($("#whitespace").is(":checked")==false&&isWhitespace(b.charCodeAt(a))==true){d+=b.charAt(a)}else{d+=b.charCodeAt(a).toString()}}return d}function asciiToBinary(b){var d=[];var c=b.length;for(var a=0;a<c;a++){if($("#whitespace").is(":checked")==false&&isWhitespace(b.charCodeAt(a))==true){d.push(b.charAt(a))}else{d.push(branah.util.padLeft(b.charCodeAt(a).toString(2),8))}}return d.join("")}function hexToAscii(e){var g="";var f=e.length;var a;var b="";for(var d=0;d<f;d++){a=e.charCodeAt(d);if((47<a&&a<58)||(96<a&&a<103)||(64<a&&a<71)){b+=e.charAt(d)}else{if(a==120||a==88){b=""}else{g+=e.charAt(d);b=""}}if(b.length==2){g+=String.fromCharCode(parseInt(b,16));b=""}}if(b!=""){g+=String.fromCharCode(parseInt(b,16))}return g}function hexToDec(a){return asciiToDec(hexToAscii(a))}function hexToBinary(a){return asciiToBinary(hexToAscii(a))}function binaryToAscii(e){var g="";var f=e.length;var b;var a="";for(var d=0;d<f;d++){b=e.charCodeAt(d);if(48==b||b==49){a+=e.charAt(d)}else{if(a!=""){g+=String.fromCharCode(parseInt(a,2));a=""}g+=e.charAt(d)}}if(a!=""){g+=String.fromCharCode(parseInt(a,2))}return g}function binaryToHex(a){return asciiToHex(binaryToAscii(a))}function binaryToDec(a){return asciiToDec(binaryToAscii(a))}function decToAscii(e){var g="";var f=e.length;var a;var b="";for(var d=0;d<f;d++){a=e.charCodeAt(d);if(47<a&&a<58){b+=e.charAt(d)}else{if(b!=""){g+=String.fromCharCode(parseInt(b));b=""}g+=e.charAt(d)}}if(b!=""){g+=String.fromCharCode(parseInt(b))}return g}function decToHex(a){return asciiToHex(decToAscii(a))}function decToBinary(a){return asciiToBinary(decToAscii(a))};
+    $(document).ready(function () {
+
+        $('#share-buttons').bind('click', function() {
+                    $(this).unbind('click');
+                    $(this).hide();
+                    var share = document.getElementById('share');
+                    FB.XFBML.parse(share);
+                    gapi.plusone.go(share);
+                    $('#tshare').html('<iframe allowtransparency="true" frameborder="0" scrolling="no" class="twitter-share-button twitter-count-horizontal" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 100px; height: 20px;" src="http://platform.twitter.com/widgets/tweet_button.html?url=http://www.branah.com/ascii-converter&count=horizontal&size=m"></iframe>');
+                    return false;
+                });
+
+        $('#comments').bind('click', function () {
+                $(this).unbind('click');
+                $('#fcomments').hide();
+                FB.XFBML.parse(this);
+                return false;
+            });
+
+    });
+</script>
+</body>
+</html>
