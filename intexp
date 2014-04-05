@@ -1,0 +1,122 @@
+#!/usr/bin/env python
+
+import re
+import sys
+
+
+def ifind(pattern,target):
+	#basic prerequest items
+	typemap = {0:"[a-z]",1:"[A-Z]",2:"\d",3:"\W",4:"\s"}
+	chartypemap = {}
+	hf = 0
+	tf = 0
+
+	plist = [pattern]
+	if "..." in pattern:
+		plist = pattern.strip().split("...")
+		if plist[1] == '':
+			plist = [plist[0]]
+			hf = 1
+		elif plist[0] == '':
+			plist = [plist[1]]
+			tf = 1
+		else:
+			pass
+	if "+" in pattern:
+		plist = pattern.strip().split("\+")
+		for k in plist:
+			if "*" in k:
+				#print k
+				pass
+	if "or" in pattern:
+		plist = pattern.strip().split("or")
+		plist = [line.strip() for line in plist]
+		#print plist
+	results = []
+	#loop match each pattern item
+	print 'plist:' + str(plist)
+	for punit in plist:
+		typelist = []
+		opflag = 0
+		for i in punit:
+			if i == '[':
+				opflag += 1
+			if i == ']':
+				opflag -= 1
+			if opflag >= 1:
+				if opflag == 1 and i == '[':
+					continue
+				else:
+					typelist.append(i)
+				#print 'specific'
+			#enter specific word check mode
+			else:
+				if opflag == 0 and i == '[' or i == ']':
+					continue
+				#normal symobic mode
+				if ord(i) >= 97 and ord(i) <= 122:
+					typelist.append(0)
+				elif ord(i) >= 65 and ord(i) <= 90:
+					typelist.append(1)
+				elif ord(i) >= 48 and ord(i) <= 57:
+					typelist.append(2)
+				elif ord(i) >= 33 and ord(i) <= 47 or ord(i) >= 58 and ord(i) <= 64 or ord(i) >= 91 and ord(i) <= 96 or ord(i) >= 123 and ord(i) <= 126:
+					typelist.append(3)
+				else:
+					typelist.append(4)
+
+		#print typelist
+		regexstr = ""
+		for j in typelist:
+			if type(j) is str:
+				regexstr += j
+			else:
+				regexstr += typemap[j]
+		if hf == 1:
+			regexstr = regexstr + ".*$"
+		elif tf == 1:
+			regexstr = "^.*" + regexstr
+		print regexstr
+		results += re.findall('('+regexstr+')',target)
+		print results
+	return ",".join(results)
+
+def multifind(sep,pattern,target):
+	tarlist = target.strip().split(sep)
+	for k in tarlist:
+		print ifind(pattern,target)
+
+def splitget(sep,index,target):
+	relist = target.strip().split(sep)
+	if index not in range(0, len(relist)):
+		return 'index out of range'
+	else:
+		return relist[index]
+
+#print json.dumps()
+# and , or , not
+#outputre = match('[[][\/+]~!@#$%^&''""**()_+}|]')
+
+#target = "abc456 123456 9xx abc!@# dfsdfsdf"
+
+target = "1,2,3,4"
+#m = ifind(sys.argv[1],target)
+#print m
+
+#print splitget(',',4,target)
+
+'''
+for sysline in sys.stdin:
+	#print line
+	m = multifind(sys.argv[2],sys.argv[1],sysline)
+	print m
+'''
+
+#quote need to escape =.=
+#ascii decimal number
+#0: char : 97 ~ 122 (lowercase)
+#1: 65 ~ 90 (uppercase)
+#2: digit : 48 ~ 57
+#3: symbol : 33 ~ 47 , 58 ~ 64, 91 ~ 96 , 123 ~ 126
+#4: space : 32
+
