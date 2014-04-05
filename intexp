@@ -22,7 +22,7 @@ def ifind(pattern,target):
 			tf = 1
 		else:
 			pass
-	if "+" in pattern:
+	if "+" or "*" in pattern:
 		plist = pattern.strip().split("\+")
 		for k in plist:
 			if "*" in k:
@@ -79,7 +79,8 @@ def ifind(pattern,target):
 		print regexstr
 		results += re.findall('('+regexstr+')',target)
 		print results
-	return ",".join(results)
+	#return ",".join(results)
+	return results
 
 def multifind(sep,pattern,target):
 	tarlist = target.strip().split(sep)
